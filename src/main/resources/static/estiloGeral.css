@@ -1,0 +1,61 @@
+:root {
+    --cor-verde: #4CAF50;  /* Verde */
+    --cor-azul: #3498DB;   /* Azul */
+}
+
+/* Estilize o texto da navegação */
+.list-group-item {
+    color: white;
+}
+
+.container.text-center {
+    background-color: var(--cor-azul);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.container.mt-5 {
+    background-color: var(--cor-verde);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.list-group-item {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+}
+
+button[type="submit"] {
+    background-color: var(--cor-verde);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.btn-secondary {
+    background-color: var(--cor-azul);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: #2980b9;
+}
+

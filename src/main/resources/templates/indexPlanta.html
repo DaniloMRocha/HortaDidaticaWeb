@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Plantas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estiloIndexPlanta.css">
+</head>
+<body>
+    <div class="container my-5">
+        <h1 style="text-align: center;">
+            <span><img src="imagem/iconePlanta.png" alt="Ícone" style="width: 80px; height: 80px;"></span>
+            Lista de Plantas
+            <span><img src="imagem/iconePlanta.png" alt="Ícone" style="width: 80px; height: 80px;"></span>
+        </h1>
+        <!-- Tabela de plantas -->
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Nome Popular</th>
+                    <th>Nome Científico</th>
+                    <th>Família</th>
+                    <th>Informações</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaPlantas">
+                <tr th:each="planta : ${listaPlantas}">
+                    <!-- Colunas com os dados de cada planta -->
+                    <td th:text="${planta.popular}"></td>
+                    <td><em th:text="${planta.genero} + ' ' + ${planta.epiteto}"></em></td>
+                    <td th:text="${planta.familia}"></td>
+                    <td>
+                        <a th:href="@{/infoPlanta/{id}(id=${planta.id})}" class="btn btn-primary">Ver mais!</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Botão para adicionar nova planta -->
+        Não achou sua planta? Deixa sua sugestão <a href="/inserirPlantaForm">aqui</a>.
+        <a th:href="@{/}" class="btn btn-secondary">Retornar à Página Inicial</a>
+    </div>
+</body>
+</html>

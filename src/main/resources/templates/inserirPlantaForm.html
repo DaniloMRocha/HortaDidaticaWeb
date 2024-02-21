@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Inserção de Planta</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estiloGeral.css">
+    <link rel="stylesheet" href="estiloPlantaForm.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Formulário de Inserção de Planta</h1>
+        <h2 class="text-center">Quer inserir uma planta no nosso banco de dados? Envie sua sugestão!</h2>
+        <form id="plantaForm">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="popular">Nome Popular:</label>
+                    <input type="text" class="form-control" id="popular" name="popular" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="generoEpiteto">Nome Científico:</label>
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="text" class="form-control" id="genero" name="genero" placeholder="Gênero">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="epiteto" name="epiteto" placeholder="Epíteto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="familia">Família:</label>
+                    <input type="text" class="form-control" id="familia" name="familia">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="epoca">Época:</label>
+                    <select class="form-control" id="epoca" name="epoca">
+                        <option value="todo_ano">Todo Ano</option>
+                        <option value="inverno">Inverno</option>
+                        <option value="primavera">Primavera</option>
+                        <option value="verao">Verão</option>
+                        <option value="outono">Outono</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="tempo">Tempo Médio de Crescimento (dias):</label>
+                    <input type="number" class="form-control" id="tempo" name="tempo">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="irrigacaoIluminacao">Necessidade de Irrigação e Iluminação:</label>
+                    <div class="form-row">
+                        <div class="col">
+                            <select class="form-control" id="irrigacao" name="irrigacao">
+                                <option value="pouca">Pouca</option>
+                                <option value="media">Média</option>
+                                <option value="muita">Muita</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select class="form-control" id="iluminacao" name="iluminacao">
+                                <option value="sombra">Sombra</option>
+                                <option value="meia-sombra">Meia-Sombra</option>
+                                <option value="sol">Sol</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="didatico">Informações Didáticas:</label>
+                <textarea class="form-control" id="didatico" name="didatico" rows="5"></textarea>
+            </div>
+            <button type="button" onclick="enviarEmail()" class="btn btn-primary">Enviar</button>
+            <a th:href="@{/}" class="btn btn-secondary">Retornar à Página Inicial</a>
+        </form>
+    </div>
+
+    <script>
+        function enviarEmail() {
+            var formData = new FormData(document.getElementById("plantaForm"));
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "hortadidatica@gmail.com");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        alert("Sugestão de planta enviada com sucesso!");
+                    } else {
+                        alert("Ocorreu um erro ao enviar o email.");
+                    }
+                }
+            };
+            xhr.send(formData);
+        }
+    </script>
+</body>
+</html>

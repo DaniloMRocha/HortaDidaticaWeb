@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Lista de Hortas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="estiloGeral.css">
+    <link rel="stylesheet" href="estiloIndexHorta.css">
+</head>
+<body>
+        <!-- Imprimir o valor atual de administradorId e verificar se é nulo ou vazio -->
+        <div th:if="${exibirFormulario}">
+            <p>Administrador nulo ou vazio, faça login como usuário:</p>
+        </div>
+
+        <!-- Verifica se o administradorId é nulo ou vazio antes de exibir o formulário -->
+        <div th:if="${exibirFormulario}">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <!-- Título do formulário -->
+                        <h2 class="text-center mb-4">Login de usuário:</h2>
+                        <h4 class="text-center mb-4">Insira seus dados abaixo para exibir suas hortas:</h4>
+
+                        <!-- Formulário de Login de Usuário -->
+                        <form id="login-form" action="/loginUsuario" method="post" class="mb-3">
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="username" class="form-label">Usuário</label>
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="Insira seu nome de usuário">
+                                </div>
+                                <div class="col">
+                                    <label for="senha" class="form-label">Senha</label>
+                                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Insira sua senha">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                        </form>
+
+                        <!-- Exibição da mensagem de boas-vindas após o login -->
+                        <div th:if="${session.usuarioId != null}" class="alert alert-success text-center" role="alert">
+                            Bem-vindo, <span th:text="${session.usuarioNome}"></span>! Cuide das suas hortas.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de Hortas -->
+        <h1 style="text-align: center;">
+            <span><img src="imagem/iconeHorta.png" alt="Ícone" style="width: 110px; height: 80px;"></span>
+            Lista de Hortas
+            <span><img src="imagem/iconeHorta.png" alt="Ícone" style="width: 110px; height: 80px;"></span>
+        </h1>
+        <a th:href="@{/inserirHortaForm}" class="btn btn-primary btn-sm mb-3" th:unless="${exibirFormulario}"> Adicionar </a>
+        <table border="1" class="table table-custom table-striped table-responsive-md">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome da Horta</th>
+                    <th>Escola</th>
+                    <th>Operações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="horta : ${listarHortasPorAdministrador != null ? listarHortasPorAdministrador : listarHortasPorUsuario}">
+    <!-- Se listarHortasPorAdministrador não for nulo, use essa lista, caso contrário, use listarHortasPorUsuario -->
+                    <td th:text="${horta.id}"></td>
+                    <td th:text="${horta.nome}"></td>
+                    <td th:text="${horta.escola}"></td>
+                    <td>
+                        <a th:href="@{/cultivo(hortaId=${horta.id}, hortaNome=${horta.nome})}" class="btn btn-primary">Exibir Cultivos</a>
+                        <a th:href="@{/deletarHorta/{id}(id=${horta.id})}" class="btn btn-danger" th:unless="${exibirFormulario}">Excluir</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <form id="logout-form" action="/logoutUsuario" method="post">
+            <button type="submit" class="btn btn-secondary">Retornar à Página Inicial</button>
+        </form>
+            
+            
+</body>
+</html>
+

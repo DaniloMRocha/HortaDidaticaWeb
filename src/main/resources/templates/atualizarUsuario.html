@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Atualização de Usuário</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container my-2">
+        <h1>Atualize os dados:</h1>
+        <form th:action="@{/salvarUsuario}" th:object="${usuario}" method="post">
+            <div class="form-group">
+                <label for="nome">Nome do Usuário:</label>
+                <input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="Insira o Nome do Usuário" required>
+            </div>
+            <div class="form-group">
+                <label for="funcao">Função do Usuário:</label>
+                <input type="text" class="form-control" id="funcao" th:field="*{funcao}" placeholder="Insira a Função do Usuário" required>
+            </div>
+            <div class="form-group">
+                <label for="escola">Escola:</label>
+                <input type="text" class="form-control" id="escola" th:field="*{escola}" placeholder="Insira o Professor/Administrador" required>
+            </div>
+            <div class="form-group">
+                <label for="escola">Grupo:</label>
+                <input type="text" class="form-control" id="gupo" th:field="*{grupo}" placeholder="Insira o grupo (Opcional)">
+            </div>
+            <div class="form-group">
+                <label for="username">Nome de Usuário:</label>
+                <input type="text" class="form-control" id="username" th:field="*{username}" placeholder="Insira o Nome de Usuário" required>
+            </div>
+            <div class="form-group">
+                <label for="senha">Nova Senha:</label>
+                <input type="password" class="form-control" id="senha" th:field="*{senha}" placeholder="Insira a Nova Senha">
+            </div>
+            <input type="hidden" th:field="*{id}">
+            <button type="submit" class="btn btn-primary">Atualizar</button>
+        </form>
+        <a th:href="@{/}" class="btn btn-secondary mt-3">

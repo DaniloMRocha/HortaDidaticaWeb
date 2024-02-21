@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Cadastro de Horta</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container my-2">
+        <h1>Cadastro de Horta</h1>
+        <form th:action="@{/salvarHorta}" th:object="${horta}" method="post">
+            <div class="form-group">
+                <label for="nome">Nome da Horta:</label>
+                <input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="Insira o Nome da Horta" required>
+            </div>
+            <div class="form-group">
+                <label for="escola">Escola ou Local da Horta:</label>
+                <input type="text" class="form-control" id="escola" th:field="*{escola}" placeholder="Insira a Escola ou Local da Horta" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+        <a th:href="@{/}" class="btn btn-secondary mt-3">Retornar à Página Inicial</a>
+    </div>
+</body>
+</html>

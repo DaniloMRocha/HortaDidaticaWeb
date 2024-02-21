@@ -1,0 +1,68 @@
+:root {
+    --cor-verde: #4CAF50;  /* Verde */
+    --cor-azul: #3498DB;   /* Azul */
+}
+
+h1.display-6 {
+    font-size: 5rem; 
+    font-weight: bold; 
+    color: var(--cor-verde); 
+    text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.5);
+}
+
+.list-group-item a {
+    color: white; /* Texto branco */
+    font-weight: bold; /* Negrito */
+    font-size: 1.5rem; /* Tamanho grande */
+}
+
+.list-group-item {
+    background-color: var(--cor-verde); /* Fundo verde */
+}
+
+.list-group-item {
+    color: white;
+}
+
+.container.text-center {
+    background-color: var(--cor-azul);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.container.mt-5 {
+    background-color: var(--cor-verde);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.list-group-item {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.container.text-center img {
+    filter: brightness(0) invert(1);
+}
+
+.container.text-center img {
+    margin-right: 10px;
+}
+
+#login-section {
+    padding-top: 20px; /* Adicionando um espaço superior */
+}
+
+#login-section p {
+    margin-bottom: 10px; /* Reduzindo a margem inferior do parágrafo */
+}
+
+#login-section .btn {
+    width: 100%; /* Definindo a largura do botão para preencher todo o espaço disponível */
+}
+
+#login-form {
+    margin-bottom: 0; /* Removendo a margem inferior do formulário */
+}
+

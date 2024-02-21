@@ -1,0 +1,56 @@
+:root {
+    --cor-verde: #4CAF50;  /* Verde */
+    --cor-marrom-claro: #D2B48C;   /* Marrom claro */
+    --cor-marrom-escuro: #8B4513;   /* Marrom escuro */
+}
+
+body {
+    background-color: #f8f9fa; /* Fundo branco */
+    color: var(--cor-marrom-escuro); /* Letras marrom escuro */
+}
+
+.container {
+    margin-top: 50px;
+}
+
+h1 {
+    color: var(--cor-verde); /* Letras verdes */
+}
+
+.table-custom {
+    background-color: var(--cor-verde); /* Verde */
+    color: var(--cor-marrom-escuro); /* Marrom escuro */
+}
+
+.table-custom th, .table-custom td {
+    border-color: var(--cor-marrom-claro); /* Marrom claro */
+}
+
+.table-custom thead th {
+    background-color: var(--cor-marrom-escuro); /* Marrom escuro */
+    color: white; /* Letras brancas */
+}
+
+.table-custom tbody tr:nth-child(even) {
+    background-color: var(--cor-marrom-claro); /* Fundo marrom claro */
+}
+
+.table-custom tbody tr:nth-child(odd) {
+    background-color: var(--cor-marrom-claro); /* Fundo marrom claro */
+}
+
+form {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+}
+
+button[type="submit"] {
+    background-color: var(--cor-verde); /* Verde */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}

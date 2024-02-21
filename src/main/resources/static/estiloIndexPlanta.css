@@ -1,0 +1,39 @@
+:root {
+    --cor-verde: #4CAF50;  /* Verde */
+    --cor-azul: #3498DB;   /* Azul */
+}
+
+body {
+    background-color: #f8f9fa;
+    color: var(--cor-verde); /* Letras verdes */
+}
+
+.container {
+    margin-top: 50px;
+}
+
+h1 {
+    color: var(--cor-verde); /* Letras verdes */
+}
+
+.table thead {
+    background-color: var(--cor-verde); /* Fundo verde */
+    color: white; /* Letras brancas */
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #E0F2F1; /* Fundo azul claro */
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #B2DFDB; /* Fundo azul mais escuro */
+}
+
+.btn-secondary {
+    background-color: var(--cor-azul); /* Botão azul */
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #2980B9; /* Hover azul mais escuro */
+}

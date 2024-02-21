@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações de Cultivo da Planta</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="background-color: #f8f9fa; color: #4CAF50;">
+    <div class="container mt-5" style="background-color: #4CAF50; color: white; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+            <!-- Título da página -->
+        <h1 class="text-center mb-4">Informações da Planta <span th:text="${planta.popular}"></span></h1>
+        <!-- Container centralizado com informações adicionais -->
+        <div class="info-container" style="background-color: white; color: #388E3C; padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: center;">
+            <p>
+                <strong>Nome científico:</strong> 
+                <em>
+                    <span th:text="${planta.genero + ' ' + planta.epiteto.toLowerCase()}"></span>
+                </em>
+            </p>
+            <p><strong>Família:</strong> <span th:text="${planta.familia}"></span></p>
+        </div>
+        <div class="row">
+            <!-- Lado esquerdo: Texto com os dados da planta -->
+            <div class="col-md-6">
+                <h1 class="mb-4">Informações de Cultivo da Planta:</h1>
+                <div class="info-item">
+                    <h2>Época indicada para plantio:</h2>
+                    <p> 
+                        <span th:text="${planta.epoca}" style="font-size: 20px; color: #388E3C; background-color: white; padding: 5px;"></span>
+                    </p>
+                </div>
+                <div class="info-item">
+                    <h2>Tempo médio de crescimento:</h2>
+                    <p> 
+                        <span th:text="${planta.tempo}" style="font-size: 20px; color: #388E3C; background-color: white; padding: 5px;"></span>
+                        <span> dias</span>
+                    </p>
+                </div>
+                <div class="info-item">
+                    <h2>Necessidade de irrigação:</h2>
+                    <p>
+                        <span th:text="${planta.irrigacao}" style="font-size: 20px; color: #388E3C; background-color: white; padding: 5px;"></span>
+                    </p>
+                </div>
+                <div class="info-item">
+                    <h2>Necessidade de iluminação:</h2>
+                    <p>
+                        <span th:text="${planta.iluminacao}" style="font-size: 20px; color: #388E3C; background-color: white; padding: 5px;"></span>
+                    </p>
+                </div>
+            </div>
+            <!-- Lado direito: Foto e tag da planta -->
+            <div class="col-md-6" style="background-color: white; padding: 20px; border-radius: 10px;">
+                <h1 class="mb-4" style="color: #4CAF50; font-size: 24px;">Saiba ainda mais lendo o QR code:</h1>
+                <div class="text-center">
+                    <img th:src="@{'/imagem/tag/' + ${planta.popular} + '.png'}" alt="Foto da Planta" class="img-fluid mb-4" style="width: 405px; height: 310px;">
+                </div>
+            </div>
+        </div>
+        <!-- Parte dos dados didáticos -->
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 style="margin-top: 20px;">Informações Didáticas:</h2>
+            </div>
+            <div class="col-md-12 didatico-container" style="background-color: white; color: #388E3C; padding: 20px; border-radius: 10px; text-align: center;">
+                <div class="info-item">
+                    <p th:text="${planta.didatico}" style="color: #388E3C;"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a th:href="@{/planta}" class="btn btn-secondary mt-3" style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Retornar</a>
+</body>
+</html>

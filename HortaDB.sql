@@ -1,0 +1,77 @@
+/* REINICIAR DATABASE */
+DROP DATABASE IF EXISTS HortaDB;
+/* CRIAR DATABASE */
+CREATE DATABASE IF NOT EXISTS HortaDB;
+/* USAR DATABASE */
+USE HortaDB;
+/* CRIAR TABELA ADM */
+CREATE TABLE administrador(
+  id INT NOT NULL AUTO_INCREMENT,
+  username VARCHAR(70),
+  senha VARCHAR(70),
+  PRIMARY KEY (id)
+);
+/* SELECIONAR TODOS OS ELEMENTOS DA TABELA ADM */
+SELECT * FROM administrador;
+/* CRIAR TABELA USUARIO */
+CREATE TABLE usuario(
+  id INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(70),
+  funcao VARCHAR(70),
+  escola VARCHAR(70),
+  grupo VARCHAR(70),
+  username VARCHAR(70),
+  senha VARCHAR(70),
+  administrador INT,
+  PRIMARY KEY (id),
+  FOREIGN KEY (administrador) REFERENCES administrador(id)
+);
+/* SELECIONAR TODOS OS ELEMENTOS DA TABELA USUARIO */
+SELECT * FROM usuario;
+/* CRIAR TABELA HORTA */
+CREATE TABLE horta(
+  id INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(70),
+  escola VARCHAR(70),
+  administrador INT,
+  PRIMARY KEY (id),
+  FOREIGN KEY (administrador) REFERENCES administrador(id)
+);
+/* SELECIONAR TODOS OS ELEMENTOS DA TABELA HORTA */
+SELECT * FROM horta;
+/* CRIAR TABELA CULTIVARHORTA */
+CREATE TABLE cultivo(
+  id INT NOT NULL AUTO_INCREMENT,
+  planta VARCHAR(70),
+  plantio DATE,
+  previsto DATE,
+  colheita DATE,
+  obs VARCHAR(400),
+  acompanhamento VARCHAR(1000),
+  horta INT,
+  PRIMARY KEY (id),
+  FOREIGN KEY (horta) REFERENCES horta(id)
+  );
+/* SELECIONAR TODOS OS ELEMENTOS DA TABELA CULTIVARHORTA */
+SELECT * FROM cultivo;
+/* DELETAR TABELA PLANTA */
+DROP TABLE planta;
+/* CRIAR TABELA PLANTA */
+CREATE TABLE planta (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    popular VARCHAR(70) NOT NULL,
+    genero VARCHAR(70),
+    epiteto VARCHAR(70),
+    familia VARCHAR(70),
+    epoca VARCHAR(70),
+    tempo INT,
+    irrigacao VARCHAR(70),
+    iluminacao VARCHAR(70),
+    didatico VARCHAR(1000),
+    inicial BOOLEAN,
+    administrador INT,
+    tag LONGBLOB,
+    foto LONGBLOB
+);
+/* SELECIONAR TODOS OS ELEMENTOS DA TABELA PLANTA*/
+SELECT * FROM planta;

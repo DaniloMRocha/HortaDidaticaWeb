@@ -1,0 +1,33 @@
+
+body {
+    background-color: var(--cor-verde);
+    color: white;
+}
+
+/* Estilo para os títulos */
+h1, h2 {
+    color: white;
+}
+
+/* Estilo para o formulário */
+form {
+    background-color: white;
+    color: var(--cor-verde);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Estilo para os botões */
+button[type="button"], .btn {
+    background-color: var(--cor-verde);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+button[type="button"]:hover, .btn:hover {
+    background-color: #45a049;
+}
